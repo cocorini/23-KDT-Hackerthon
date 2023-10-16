@@ -19,13 +19,11 @@ with open(file_path, "r", encoding="utf-8") as file:
 
         # 추출한 이미지를 저장할 경로 지정
         output_path = r"C:\Users\user\Desktop\23_kdt_hackathon\hackathon_data\data\Training\01.원천데이터\TS_남자사람_"
-
         output_path += json_data['annotations']['bbox'][cnt]['label']
-        
         file_name = json_data['meta']['img_path'].split('/')[-1]
-        
         output_path = os.path.join(output_path, file_name)
-         
+        
+        # 한글포함 경로에 넣기 위함..
         ret, img_arr = cv2.imencode('.jpg', roi)
 
         if ret:
