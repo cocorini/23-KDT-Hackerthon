@@ -156,8 +156,8 @@ def find_boundbox(content, woman):
 data = []
 
 # 라벨링 들어있는 폴더
-folder_path_w = r"C:\Users\user\Downloads\hackathon_data\data\Training\02.라벨링데이터\TL_여자사람"
-folder_path_m = r"C:\Users\user\Downloads\hackathon_data\data\Training\02.라벨링데이터\TL_남자사람"
+folder_path_w = r"C:\Users\user\Desktop\23_kdt_hackathon\hackathon_data\data\Training\02.라벨링데이터\TL_여자사람"
+folder_path_m = r"C:\Users\user\Desktop\23_kdt_hackathon\hackathon_data\data\Training\02.라벨링데이터\TL_남자사람"
 
 # 지정한 폴더 내의 모든 파일과 폴더 목록 가져오기
 contents_w = os.listdir(folder_path_w)
