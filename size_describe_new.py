@@ -20,19 +20,85 @@ def find_boundbox(key):
             with open(path, "r", encoding="utf-8") as file:
                 json_data = json.load(file)
                 
-                if key=='남자' or key=='여자':
-                    body = json_data['annotations']['bbox'][0]
-                    head = json_data['annotations']['bbox'][1]
-                    face = json_data['annotations']['bbox'][2]
-                    eye = json_data['annotations']['bbox'][3]
-                    mouth = json_data['annotations']['bbox'][5]
-                    ear = json_data['annotations']['bbox'][6]
-                    neck = json_data['annotations']['bbox'][8]
-                    upper_body = json_data['annotations']['bbox'][9]
-                    foot = json_data['annotations']['bbox'][12]
-                    leg = json_data['annotations']['bbox'][15]
-                    shoes1 = json_data['annotations']['bbox'][16]
-                    shoes2 = json_data['annotations']['bbox'][17]
+                if key=='남자':
+                    contents = json_data['annotations']['bbox']
+                    for content in contents:
+                        if content['label'] is '사람전체':
+                            body_h.append(content['h'])
+                            body_w.append(content['w'])
+                        elif content['label'] is '머리':
+                            head_h.append(content['h'])
+                            head_w.append(content['w'])
+                        elif content['label'] is '얼굴':
+                            face_h.append(content['h'])
+                            face_w.append(content['w'])    
+                        elif content['label'] is '눈':
+                            eye_h.append(content['h'])
+                            eye_w.append(content['w'])
+                        elif content['label'] is '입':
+                            mouth_h.append(content['h'])
+                            mouth_w.append(content['w'])
+                        elif content['label'] is '귀':
+                            ear_h.append(content['h'])
+                            ear_w.append(content['w'])    
+                        elif content['label'] is '목':
+                            neck_h.append(content['h'])
+                            neck_w.append(content['w'])
+                        elif content['label'] is '상체':
+                            upper_body_h.append(content['h'])
+                            upper_body_w.append(content['w'])
+                        elif content['label'] is '발':
+                            foot_h.append(content['h'])
+                            foot_w.append(content['w'])    
+                        elif content['label'] is '다리':
+                            leg_h.append(content['h'])
+                            leg_w.append(content['w'])    
+                        elif content['label'] is '운동화':
+                            shoes1_h.append(content['h'])
+                            shoes_w.append(content['w'])
+                        elif content['label'] is '남자구두':
+                            shoes2_h.append(content['h'])
+                            shoes2_w.append(content['w'])
+                            
+                elif key=='여자':
+                    contents = json_data['annotations']['bbox']
+                    for content in contents:
+                        if content['label'] is '사람전체':
+                            body_h.append(content['h'])
+                            body_w.append(content['w'])
+                        elif content['label'] is '머리':
+                            head_h.append(content['h'])
+                            head_w.append(content['w'])
+                        elif content['label'] is '얼굴':
+                            face_h.append(content['h'])
+                            face_w.append(content['w'])    
+                        elif content['label'] is '눈':
+                            eye_h.append(content['h'])
+                            eye_w.append(content['w'])
+                        elif content['label'] is '입':
+                            mouth_h.append(content['h'])
+                            mouth_w.append(content['w'])
+                        elif content['label'] is '귀':
+                            ear_h.append(content['h'])
+                            ear_w.append(content['w'])    
+                        elif content['label'] is '목':
+                            neck_h.append(content['h'])
+                            neck_w.append(content['w'])
+                        elif content['label'] is '상체':
+                            upper_body_h.append(content['h'])
+                            upper_body_w.append(content['w'])
+                        elif content['label'] is '발':
+                            foot_h.append(content['h'])
+                            foot_w.append(content['w'])    
+                        elif content['label'] is '다리':
+                            leg_h.append(content['h'])
+                            leg_w.append(content['w'])    
+                        elif content['label'] is '운동화':
+                            shoes1_h.append(content['h'])
+                            shoes_w.append(content['w'])
+                        elif content['label'] is '여자구두':
+                            shoes2_h.append(content['h'])
+                            shoes2_w.append(content['w'])
                     
                 elif key=='나무':
                     contents = json_data['annotations']['bbox']
@@ -57,6 +123,7 @@ def find_boundbox(key):
 
 Tree = pd.DataFrame()
 Man = pd.DataFrame()
+Woman = pd.DataFrame()
 House = pd.DataFrame()
 
 tree_h = np.array()
@@ -82,3 +149,57 @@ Tree['leaf_h'] = leaf_h
 Tree['leaf_w'] = leaf_w
 Tree['crown_h'] = crown_h
 Tree['crown_w'] = crown_w
+
+body_h = np.array()
+body_w = np.array()
+head_h = np.array()
+head_w = np.array()
+face_h = np.array()
+face_w = np.array()
+eye_h = np.array()
+eye_w = np.array()
+mouth_h = np.array()
+mouth_w = np.array()
+ear_h = np.array()
+ear_w = np.array()
+neck_h = np.array()
+neck_w = np.array()
+upper_body_h = np.array()
+upper_body_w = np.array()
+foot_h = np.array()
+foot_w = np.array()
+leg_h = np.array()
+leg_w = np.array()
+shoes1_h = np.array()
+shoes_w = np.array()
+shoes2_h = np.array()
+shoes2_w = np.array()
+
+find_boundbox('남자')
+
+body_h = np.array()
+body_w = np.array()
+head_h = np.array()
+head_w = np.array()
+face_h = np.array()
+face_w = np.array()
+eye_h = np.array()
+eye_w = np.array()
+mouth_h = np.array()
+mouth_w = np.array()
+ear_h = np.array()
+ear_w = np.array()
+neck_h = np.array()
+neck_w = np.array()
+upper_body_h = np.array()
+upper_body_w = np.array()
+foot_h = np.array()
+foot_w = np.array()
+leg_h = np.array()
+leg_w = np.array()
+shoes1_h = np.array()
+shoes_w = np.array()
+shoes2_h = np.array()
+shoes2_w = np.array()
+
+find_boundbox('여자')
