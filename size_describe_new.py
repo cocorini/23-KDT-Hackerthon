@@ -31,7 +31,10 @@ def find_boundbox(key):
                             head_w.append(content['w'])
                         elif content['label'] == '얼굴':
                             face_h.append(content['h'])
-                            face_w.append(content['w'])    
+                            face_w.append(content['w'])
+                        elif content['label'] == '코':
+                            nose_h.append(content['h'])
+                            nose_w.append(content['w'])    
                         elif content['label'] == '눈':
                             eye_h.append(content['h'])
                             eye_w.append(content['w'])
@@ -133,6 +136,8 @@ def make_df(key):
         dic[key]['face_w']=face_w[:11200]
         dic[key]['eye_h']=eye_h[:11200]
         dic[key]['eye_w']=eye_w[:11200]
+        dic[key]['nose_h']=nose_h[:11200]
+        dic[key]['nose_w']=nose_w[:11200]
         dic[key]['mouth_h']=mouth_h[:11200]
         dic[key]['mouth_w']=mouth_w[:11200]
         dic[key]['ear_h']=ear_h[:11200]
@@ -186,6 +191,8 @@ face_h = []
 face_w = []
 eye_h = []
 eye_w = []
+nose_h = []
+nose_w = []
 mouth_h = []
 mouth_w = []
 ear_h = []
@@ -212,6 +219,8 @@ face_h = []
 face_w = []
 eye_h = []
 eye_w = []
+nose_h = []
+nose_w = []
 mouth_h = []
 mouth_w = []
 ear_h = []
